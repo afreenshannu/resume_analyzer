@@ -4,7 +4,7 @@ import pandas as pd
 import altair as alt
 
 # Title
-st.title("📄 AI Resume Analyzer - Phase 1")
+st.title("📄 AI Resume Analyzer")
 
 # File uploader
 uploaded_file = st.file_uploader("Upload your resume (PDF)", type=["pdf"])
