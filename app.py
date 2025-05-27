@@ -1,8 +1,8 @@
 import streamlit as st
 import fitz  # PyMuPDF
 import pandas as pd
+import matplotlib.pyplot as pltport 
 import altair as alt
-
 # Title
 st.title("📄 AI Resume Analyzer")
 
@@ -72,6 +72,24 @@ def suggest_job_roles(skills):
             suggested_roles.add(role)
     return list(suggested_roles)
 
+ # Resume Score
+def score_resume(skills):
+    st.subheader("📊 Resume Score")
+    score = score_resume(skills)
+    st.metric(label="Skill Match Score", value=f"{score} / 100")
+
+# Resume feedback
+
+    if score >= 80:
+        return "Excellent resume! You're well-prepared for most roles."
+    elif score >= 60:
+        return "Good resume! Try adding a few more relevant skills."
+    elif score >= 40:
+        return "Average resume. Consider strengthening your skills section."
+    else:
+        return "Your resume needs improvement. Focus on key skills in your domain."
+
+
 # MAIN LOGIC
 if uploaded_file:
     st.success("Resume uploaded successfully!")
@@ -99,32 +117,17 @@ if uploaded_file:
         st.write("No job roles found based on detected skills.")
 
 
-    # Resume Score
-def score_resume(skills):
-    st.subheader("📊 Resume Score")
-    score = score_resume(skills)
-    st.metric(label="Skill Match Score", value=f"{score} / 100")
-
-    # Feedback
-def provide_feedback(score):
-    st.subheader("💡 Feedback")
-    feedback = provide_feedback(score)
-    st.write(feedback)
-
 # Resume scoring
 
     total_skills = len(skills)
     max_possible = 20  # Based on number of keywords in SKILL_KEYWORDS
     score = int((total_skills / max_possible) * 100)
+   
+    # Feedback
+def provide_feedback(score):
+    st.subheader("💡 Feedback")
+    feedback = provide_feedback(score)
+    st.write(feedback)
     return min(score, 100)
 
-# Resume feedback
 
-    if score >= 80:
-        return "Excellent resume! You're well-prepared for most roles."
-    elif score >= 60:
-        return "Good resume! Try adding a few more relevant skills."
-    elif score >= 40:
-        return "Average resume. Consider strengthening your skills section."
-    else:
-        return "Your resume needs improvement. Focus on key skills in your domain."
