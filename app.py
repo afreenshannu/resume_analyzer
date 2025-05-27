@@ -97,3 +97,34 @@ if uploaded_file:
             st.write(f"- {role}")
     else:
         st.write("No job roles found based on detected skills.")
+
+
+    # Resume Score
+def score_resume(skills):
+    st.subheader("📊 Resume Score")
+    score = score_resume(skills)
+    st.metric(label="Skill Match Score", value=f"{score} / 100")
+
+    # Feedback
+def provide_feedback(score):
+    st.subheader("💡 Feedback")
+    feedback = provide_feedback(score)
+    st.write(feedback)
+
+# Resume scoring
+
+    total_skills = len(skills)
+    max_possible = 20  # Based on number of keywords in SKILL_KEYWORDS
+    score = int((total_skills / max_possible) * 100)
+    return min(score, 100)
+
+# Resume feedback
+
+    if score >= 80:
+        return "Excellent resume! You're well-prepared for most roles."
+    elif score >= 60:
+        return "Good resume! Try adding a few more relevant skills."
+    elif score >= 40:
+        return "Average resume. Consider strengthening your skills section."
+    else:
+        return "Your resume needs improvement. Focus on key skills in your domain."
