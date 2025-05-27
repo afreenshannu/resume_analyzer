@@ -1,7 +1,7 @@
 import streamlit as st
 import fitz  # PyMuPDF
 import pandas as pd
-import matplotlib.pyplot as pltport 
+import matplotlib.pyplot as plt
 import altair as alt
 # Title
 st.title("📄 AI Resume Analyzer")
