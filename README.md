@@ -1,25 +1,37 @@
-# Resume Analyzer 🎯
+#  AI Resume Analyzer
 
-A Streamlit-based web application that extracts and analyzes resume content using Azure OpenAI services.
+A Streamlit-based web application that intelligently analyzes PDF resumes to extract skills, suggest job roles, evaluate skill match scores, provide improvement feedback, and now even compare your resume against company-specific requirements like Google, Microsoft, etc.
 
-## 🚀 Features
-- Upload PDF resumes
-- Extract raw text using PyMuPDF
-- Clean and display extracted text
-- Set up for future AI-powered analysis
+---
 
-## 🛠️ Tech Stack
-- Python
-- Streamlit
-- PyMuPDF
-- Azure OpenAI (planned)
-- Git & GitHub
+##  Features
 
-## 🧪 How to Run Locally
+-  Upload PDF resume
+-  Extract skills using keyword matching
+-  Visualize skill frequency via bar chart
+-  Suggest relevant job roles
+-  Calculate resume match score
+-  Provide skill-based feedback
+-  Match resume with top company expectations (Google, Microsoft, Amazon, etc.)
+
+---
+
+##  Tech Stack
+
+- **Frontend**: Streamlit
+- **Backend**: Python
+- **Libraries**:
+  - `PyMuPDF` – Extract text from PDFs
+  - `Pandas` – Skill frequency analysis
+  - `Altair` – Skill bar chart visualization
+  - `Matplotlib` – Optional for future charts
+
+---
+
+##  How to Run
+
 ```bash
 git clone https://github.com/afreenshannu/resume_analyzer.git
 cd resume_analyzer
-python -m venv .venv
-.venv\Scripts\activate  # On Windows
 pip install -r requirements.txt
 streamlit run app.py
